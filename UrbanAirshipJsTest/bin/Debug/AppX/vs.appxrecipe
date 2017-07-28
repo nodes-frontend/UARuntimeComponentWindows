@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>NODESASUSIE9</Machine>
+    <WindowsUser>Nodes</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>e1eb2faa-1679-4041-91be-cf4e21ad3655</PackageIdentityName>
+    <PackageIdentityPublisher>CN=Nodes</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\bld\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>
+    </WindowsSdkPath>
+    <LayoutDir>C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\bin\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>DC987D6AFBA2705A9D45172EC5618833A8A1281E6B23DBEB05AFC9078C514E06</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>e1eb2faa-1679-4041-91be-cf4e21ad3655_1.0.0.0_neutral__kedb0tnt4426w</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>e1eb2faa-1679-4041-91be-cf4e21ad3655_kedb0tnt4426w!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>e1eb2faa-1679-4041-91be-cf4e21ad3655</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Nodes</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-07-13T11:00:47.848</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\RuntimeComponentTest\bin\Debug\RuntimeComponentTest.winmd">
+      <PackagePath>RuntimeComponentTest.winmd</PackagePath>
+      <Modified>2017-07-13T11:00:19.676</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipWindows\UrbanAirshipWindows\bin\Debug\UrbanAirship.winmd">
+      <PackagePath>UrbanAirship.winmd</PackagePath>
+      <Modified>2017-06-22T13:39:26.731</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\airshipconfig.xml">
+      <PackagePath>airshipconfig.xml</PackagePath>
+      <Modified>2017-06-25T18:28:34.281</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\index.html">
+      <PackagePath>index.html</PackagePath>
+      <Modified>2017-07-13T10:58:23.376</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\images\LockScreenLogo.scale-200.png">
+      <PackagePath>images\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\images\SplashScreen.scale-200.png">
+      <PackagePath>images\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\images\Square150x150Logo.scale-200.png">
+      <PackagePath>images\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\images\Square44x44Logo.scale-200.png">
+      <PackagePath>images\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\images\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>images\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\images\StoreLogo.png">
+      <PackagePath>images\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\images\Wide310x150Logo.scale-200.png">
+      <PackagePath>images\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\js\events.js">
+      <PackagePath>js\events.js</PackagePath>
+      <Modified>2017-07-13T11:00:41.555</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\js\main.js">
+      <PackagePath>js\main.js</PackagePath>
+      <Modified>2017-06-25T22:35:16.959</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\lib\winjs-4.0.1\js\base.js">
+      <PackagePath>lib\winjs-4.0.1\js\base.js</PackagePath>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\lib\winjs-4.0.1\js\ui.js">
+      <PackagePath>lib\winjs-4.0.1\js\ui.js</PackagePath>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\css\default.css">
+      <PackagePath>css\default.css</PackagePath>
+      <Modified>2017-06-25T18:08:53.917</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\lib\winjs-4.0.1\css\ui-light.css">
+      <PackagePath>lib\winjs-4.0.1\css\ui-light.css</PackagePath>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\lib\winjs-4.0.1\css\ui-dark.css">
+      <PackagePath>lib\winjs-4.0.1\css\ui-dark.css</PackagePath>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\lib\winjs-4.0.1\fonts\Symbols.ttf">
+      <PackagePath>lib\winjs-4.0.1\fonts\Symbols.ttf</PackagePath>
+      <Modified>2017-06-22T14:05:39.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
+      <PackagePath>WinMetadata\Windows.winmd</PackagePath>
+      <Modified>2017-06-22T14:28:55.820</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\bin\Debug\ReverseMap\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-07-13T10:42:02.554</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

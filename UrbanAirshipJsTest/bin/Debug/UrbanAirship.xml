@@ -1,0 +1,1097 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UrbanAirship</name>
+    </assembly>
+    <members>
+        <member name="T:UrbanAirship.LogDelegate">
+            <summary>
+            A delegate type that can perform logging tasks.
+            </summary>
+            <param name="s">A log message string.</param>
+        </member>
+        <member name="T:UrbanAirship.DelegatedLogWriter">
+            <summary>
+            Implemenation of ILogWriter that takes an arbitrary delegate (function in JavaScript) to use
+            as the WriteLine method.  This class is primarily of use to HTML5/JavaScript apps,
+            since these cannot implement interfaces on their own.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.ILogWriter">
+            <summary>
+            Interface for objects used by the Logger
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.ILogWriter.WriteLine(System.String)">
+            <summary>
+            Intended to be used with the Logger, will get messages based
+            on current log level. 
+            </summary>
+            <param name="message">String representing the information to be logged.</param>
+        </member>
+        <member name="M:UrbanAirship.DelegatedLogWriter.#ctor(UrbanAirship.LogDelegate)">
+            <summary>
+            DelegatedLogWriter constructor.
+            </summary>
+            <param name="logDelegate">The delegate to be called in the WriteLine method.</param>
+        </member>
+        <member name="M:UrbanAirship.DelegatedLogWriter.WriteLine(System.String)">
+            <summary>
+            Call the delegate supplied in the class constructor to the passed message string.
+            </summary>
+            <note>This method will always attempt to marshal the call onto the main thread.</note>
+            <param name="message">The log message string.</param>
+        </member>
+        <member name="P:UrbanAirship.DelegatedLogWriter.Delegate">
+            <summary>
+            Accessor for a delegate taking a single, string value that will be called in the WriteLine
+            method.  This will typically be a method or function that accomplishes a logging task.
+            </summary>
+            <note>This accessor is read-only. To set a delegate, supply it in the class constructor.</note>
+        </member>
+        <member name="T:UrbanAirship.AirshipConfig">
+            <summary>
+            Urban Airship application configuration. This class is the primary
+            configuration interface for the Urban Airship library.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.AirshipConfig.#ctor">
+            <summary>
+            The Urban Airship app settings class. An instance may be serialized from XML
+            or populated at runtime by the host application.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.AirshipConfig.ReadConfig(System.String)">
+             <summary>
+             Create an AirshipConfig instance from an XML file.
+             </summary>
+             <param name="fileName">The file to load (must be in the application package)</param>
+             <returns>The populated instance.</returns>
+             <example>The XML file must contain an alphabetized list of configuration elements:
+             <code>
+            
+                 <AirshipConfig>
+                     <DevelopmentAppKey>Development Key</DevelopmentAppKey>
+                     <DevelopmentAppSecret>Development Secret</DevelopmentAppSecret>
+                     <DevelopmentLogLevel>Verbose</DevelopmentLogLevel>
+                     <InProduction>false</InProduction>
+                     <MPNSChannelName>Push Channel Name</MPNSChannelName>
+                     <MPNSServiceName>The CN from your Cert</MPNSServiceName>
+                     <ProductionAppKey>Production App Key</ProductionAppKey>
+                     <ProductionAppSecret>Production App Secret</ProductionAppSecret>
+                     <ProductionLogLevel>Error</ProductionLogLevel>
+                 </AirshipConfig>
+            
+             </code>
+             </example>
+             <remarks>This method blocks during the file read.</remarks>
+        </member>
+        <member name="M:UrbanAirship.AirshipConfig.DebugLog">
+            <summary>
+            Log all options as DEBUG.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.ProductionAppKey">
+            <summary>
+            Gets or sets the Urban Airship production app key.
+            </summary>
+            <value>The Urban Airship production app key.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.ProductionAppSecret">
+            <summary>
+            Gets or sets the Urban Airship production app secret.
+            </summary>
+            <value>The Urban Airship production app secret.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.DevelopmentAppKey">
+            <summary>
+            Gets or sets the Urban Airship development app key.
+            </summary>
+            <value>The Urban Airship development app key.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.DevelopmentAppSecret">
+            <summary>
+            Gets or sets the Urban Airship development app secret.
+            </summary>
+            <value>The Urban Airship development app secret.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.InProduction">
+            <summary>
+            Gets or sets the development or production status for this application.
+            </summary>
+            <value>The production/development status of this application.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.DevelopmentLogLevel">
+            <summary>
+            The log level to use when the application is in development mode.
+            </summary>
+            <value>The development log level.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.ProductionLogLevel">
+            <summary>
+            The log level to use when the application is in production mode.
+            </summary>
+            <value>The production log level.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.AppKey">
+            <summary>
+            Gets the current application key (based on the InProduction flag).
+            </summary>
+            <value>The Urban Airship application key.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.AppSecret">
+            <summary>
+            Gets the current application secret (based on the InProduction flag).
+            </summary>
+            <value>The Urban Airship application secret.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.LibraryLogLevel">
+            <summary>
+            The current log level, based on the InProduction flag.
+            </summary>
+            <value>The current log level.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.MPNSChannelName">
+            <summary>
+            The channel name to use with MPNS.
+            </summary>
+            <value>The Windows Phone (MPNS) Push Channel Name.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.MPNSServiceName">
+            <summary>
+            The MPNS service name. If you wish to use an unthrottled channel, this name MUST be on the CN
+            in the subject line of the SSL certificate uploaded to AppHub.
+            </summary>
+            <value>The MPNS service name.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.DeviceApiUrl">
+            <summary>
+            The base URL used for Device API registration.
+            </summary>
+            <value>The Device API URL.</value>
+        </member>
+        <member name="P:UrbanAirship.AirshipConfig.NeonUrl">
+            <summary>
+            The base URL used for Neon (BoxOffice) client connections.
+            </summary>
+            <value>The Neon URL.</value>
+        </member>
+        <member name="T:UrbanAirship.Preferences">
+            <summary>
+            Preferences is an abstract wrapper around the WinRT and Windows Phone key/value stores. It provides
+            a common interface for storing and retrieving key/value with support for string and list values.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Preferences.Remove(System.String)">
+            <summary>
+            Remove an entry from the persistent storage.
+            </summary>
+            <param name="key">The key to remove.</param>
+            <returns>True if the value was successfully removed, otherwise false.</returns>
+        </member>
+        <member name="M:UrbanAirship.Preferences.GetObjectValue(System.String,System.Object)">
+            <summary>
+            Gets a persisted object.
+            </summary>
+            <param name="key">The key to retrieve.</param>
+            <param name="defaultValue">The default value to return if the key is not found.</param>
+            <returns>The stored object, if found, otherwise the default value.</returns>
+        </member>
+        <member name="M:UrbanAirship.Preferences.GetStringList(System.String)">
+            <summary>
+            Gets a list saved with SetStringList. THe 
+            </summary>
+            <param name="key">The map key</param>
+            <returns>The list if found, otherwise an empty list.</returns>
+        </member>
+        <member name="M:UrbanAirship.Preferences.SetObjectValue(System.String,System.Object)">
+            <summary>
+            Stores a value in persistent storage.
+            </summary>
+            <param name="key">The key</param>
+            <param name="val">The value to store. The type must be supported by both 
+            IsolatedStorage and Windows.Storage (i.e., a WinRT compatible type).</param>
+            <returns>True if the object was successfully stored, otherwise false.</returns>
+        </member>
+        <member name="M:UrbanAirship.Preferences.SetStringList(System.String,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Stores a list in persistent storage.
+            </summary>
+            <param name="key">The key</param>
+            <param name="values">The list to store. This value may not be null.</param>
+            <returns>True if the list was successfully stored, otherwise false.</returns>
+        </member>
+        <member name="T:UrbanAirship.Push.ChannelRegistrationResponse">
+            <summary>
+            A wrapper for push channel registration responses.
+            </summary>
+            <remarks>Use this if you wand to write registrar logic that
+            doesn't depend on exception handling for distinguishing retries
+            and fatal errors.</remarks>
+        </member>
+        <member name="P:UrbanAirship.Push.ChannelRegistrationResponse.Retry">
+            <summary>
+            <c>true</c> if a retrying registration is acceptable, <c>false</c> otherwise.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.ChannelRegistrationResponse.Channel">
+            <summary>
+            The push channel obtained in registration. This value may be null,
+            in cases where a registration error occured.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.DeviceApiClient">
+            <summary>
+            A REST client for performing APID registration on the UA server infrastructure.
+            This class represents the final step in registration, after an optional firstrun on
+            NeonClient and push channel registration with the Microsoft APIs.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.DeviceApiClient.UpdateApidAsync(UrbanAirship.Push.DeviceApiClient.RegistrationData)">
+            <summary>
+            Performs an asynchronous APID update on the server with automatic retries and exponential backoff.
+            </summary>
+            <param name="data">An instance of DeviceApiClient.RegistrationData encapsulating the registration payload.</param>
+        </member>
+        <member name="M:UrbanAirship.Push.DeviceApiClient.DeleteApidAsync(UrbanAirship.Push.DeviceApiClient.RegistrationData)">
+            <summary>
+            Peforms an asynchronous APID delete on the server with automatic retries and exponential backoff.
+            Note: This method implicitly assumes the APID being deleted belongs to us, which will
+            result in cancellation of the delete operation if push is currently enabled.
+            </summary>
+            <param name="data">An instance of DeviceApiClient.RegistrationData encapsulating the APID and auth credentials</param>
+            <returns>A Task of bool, indicating whether the operation was able to complete. A result of false indicates a fatal error.</returns>
+        </member>
+        <member name="M:UrbanAirship.Push.DeviceApiClient.DeleteApidAsync(UrbanAirship.Push.DeviceApiClient.RegistrationData,System.Boolean)">
+            <summary>
+             Peforms an APID delete on the server with automatic retries and exponential backoff.
+             Note: This method explicitly takes an argument indicating whether the APID being deleted belongs to us,
+             in which case the delete operation will be cancelled if push is currently enabled.
+            </summary>
+            <param name="data">An instance of DeviceApiClient.RegistrationData encapsulating the APID and auth credentials</param>
+            <param name="ours">A boolean indicating whether the APID being deleted currently belongs to us</param>
+            <returns>A Task of bool, indicating whether the operation was able to complete. A result of false indicates a fatal error.</returns>
+        </member>
+        <member name="T:UrbanAirship.Push.DeviceApiClient.RegistrationData">
+            <summary>
+            A internal model class used both to encapsulate registration data and to serialize 
+            this data to the eventual JSON payload sent to the server.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.DeviceApiClient.RegistrationData.ToJsonStream">
+            <summary>
+            Serializes the registration data to a JSON stream.
+            </summary>
+            <returns>A serialized JSON payload as a MemoryStream.</returns>
+        </member>
+        <member name="P:UrbanAirship.Push.DeviceApiClient.RegistrationData.Uri">
+            <summary>
+            Accessor for the push channel URI string.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.DeviceApiClient.RegistrationData.ExpirationUtc">
+            <summary>
+            Accessor for the channel's expiration date in UTC (ISO 8601) format.
+            Note that this field is only relevant to the Win8 platform, and is ignored
+            during JSON payload serialization on WP8.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.DeviceApiClient.RegistrationData.Apid">
+            <summary>
+            Accessor for the associated APID.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.DeviceApiClient.RegistrationData.Alias">
+            <summary>
+            Accessor for the associated alias.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.DeviceApiClient.RegistrationData.Tags">
+            <summary>
+            Accessor for the associated tags.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.DeviceApiClient.RegistrationData.UserName">
+            <summary>
+            Accessor for the user name used to authorize the REST call.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.DeviceApiClient.RegistrationData.Password">
+            <summary>
+            Accessor for the password used to authorize the REST call.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.PushChannel">
+            <summary>
+            A model class representing the cross-platform abstraction of a push channel.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.PushChannel.#ctor(UrbanAirship.Push.PushChannel.ChannelType,System.String,System.DateTimeOffset)">
+            <summary>
+            PushChannel constructor.
+            </summary>
+            <param name="type">A ChannelType enum.</param>
+            <param name="uri">The associated channel URI string.</param>
+            <param name="expiration">An expiration date as a a DateTimeOffset.</param>
+        </member>
+        <member name="M:UrbanAirship.Push.PushChannel.#ctor(UrbanAirship.Push.PushChannel.ChannelType,System.String)">
+            <summary>
+            PushChannel constructor, minus the expiration date.
+            </summary>
+            <param name="type">A ChannelType enum.</param>
+            <param name="uri">The associated channel URI string.</param>
+        </member>
+        <member name="P:UrbanAirship.Push.PushChannel.Type">
+            <summary>
+            Accessor for the channel type enum.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.PushChannel.Uri">
+            <summary>
+            Accessor for the URI string associated with the channel.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.PushChannel.Expiration">
+            <summary>
+            Accessor for the channel's expiration date, as a DateTimeOffset.
+            Note that this is only relevant on the Windows 8 platform.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.PushChannel.ExpirationUtc">
+            <summary>
+            Accessor for the channel's expiration date, as a UTC (ISO 8601) string.
+            Note that this is only relevant on the Windows 8 platform.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.PushChannel.ChannelType">
+            <summary>
+            An enum representing the platform of the channel.
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.Push.PushChannel.ChannelType.WIN8">
+            <summary>
+            Represents a Windows 8 push channel.
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.Push.PushChannel.ChannelType.WP8">
+            <summary>
+            Represents a Windows Phone 8 push channel.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.TileNotificationData">
+            <summary>
+            Model class representing the data received with a tile notification.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.TileNotificationData.Payload">
+            <summary>
+            The raw XML payload.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.ToastNotificationData">
+            <summary>
+            Model class representing the data received with a toast notification.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.ToastNotificationData.Text">
+            <summary>
+            A list of text strings parsed from the toast XML.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.ToastNotificationData.Payload">
+            <summary>
+            The raw XML payload.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.WNSChannelRenewalTask">
+             <summary>
+             This task provides a mechanism for automatically renewing a WNS
+             channel in the background at a regular interval.
+             </summary>
+             <remarks>
+             This task requires a manifest entry.
+             To Debug this task, go to View-&gt;Toolbars-&gt;Debug Location
+             Click the arrow next to "Suspend" - this will allow you to alter
+             the application lifecycle and trigger a background entry at this
+             entry point.
+            </remarks>
+        </member>
+        <member name="M:UrbanAirship.Push.WNSChannelRenewalTask.Run(Windows.ApplicationModel.Background.IBackgroundTaskInstance)">
+            <summary>
+            The task entry point.
+            </summary>
+            <param name="taskInstance">The background task instance.</param>
+        </member>
+        <member name="T:UrbanAirship.SystemLogWriter">
+            <summary>
+            Wrapper around  System.Diagnostics.Debug.WriteLine(output) method,
+            implements ILogWriter and is intended as the default class for the Logger
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.SystemLogWriter.WriteLine(System.String)">
+            <summary>
+            Write to System.Debug.WriteLine(message)
+            </summary>
+            <param name="message">Message that will be written to the debugger</param>
+        </member>
+        <member name="T:UrbanAirship.Push.IPushRegistrar">
+            <summary>
+            An interface representing a push registrar, which can both register for a channel
+            and receive native push events.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.IPushRegistrar.RegisterAsync(UrbanAirship.AirshipConfig)">
+            <summary>
+            Performs push channel registration asynchronously with automatic retries and exponential backoff.
+            </summary>
+            <param name="config">An instance of AirshipConfig, typically the config options passed
+            during takeoff.
+            <returns>A Task of PushChannel</returns>
+            <throws>ChannelRegistrationException</throws>
+            </param>
+        </member>
+        <member name="M:UrbanAirship.Push.IPushRegistrar.Unregister">
+            <summary>
+            Unregisters for the push channel and unsubscribes from all native push events.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.IPushRegistrar.ChannelAction">
+            <summary>
+            Accessor for a function taking a PushChannel as an argument, which is called when
+            channel registration has completed successfully.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.IPushRegistrar.PushReceivedAction">
+            <summary>
+            Accessor for a function taking an alert string and an extras dictionary as parameters,
+            which is called when a push is received by the registrar.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.IPushRegistrar.PushActivatedAction">
+            <summary>
+            Accessor for a function taking an alert string and an extras dictionary as parameters,
+            which is called when a push is activated (clicked) by the user.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.IPushRegistrar.InterceptNotifications">
+            <summary>
+            Accessor for whether notification payloads can be intercepted by the application.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.NeonClient">
+            <summary>
+            An HTTP client used for performing firstrun on Neon (BoxOffice).
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.NeonClient.#ctor(System.String)">
+            <summary>
+            NeonClient constructor.
+            </summary>
+            <param name="baseUrl">The base URL for the Neon server</param>
+        </member>
+        <member name="M:UrbanAirship.Push.NeonClient.FirstrunAsync">
+            <summary>
+            Performs a firstrun call on Neon, which involves creating a new APID and making that APID known
+            to the server environment.  This will result in automatic retries and exponential backoff in 
+            recoverable error scenarios.
+            </summary>
+            <returns>A Task of string, where the string is the resulting APID.</returns>
+            <throws>FirstrunException</throws>
+        </member>
+        <member name="T:UrbanAirship.LogLevel">
+            <summary>
+            Setting for Logger logging level. Verbose is the highest, Error is the lowest. Default
+            is Info
+            </summary>
+            <remarks>
+            In order to comply with the WinRTC public type constraints, this can't be embedded in the class
+            </remarks>
+        </member>
+        <member name="F:UrbanAirship.LogLevel.Verbose">
+            <summary>
+            Verbose is the highest level of logging
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.LogLevel.Debug">
+            <summary>
+            Debug is one level below Verbose
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.LogLevel.Info">
+            <summary>
+            Info is two levels below Verbose, and is the default
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.LogLevel.Warn">
+            <summary>
+            Warn is three levels below Verbose
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.LogLevel.Error">
+            <summary>
+            Error is four levels below Verbose
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.LogLevel.Assert">
+            <summary>
+            Assert is reserved for future use.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Logger">
+            <summary>
+             Logging class used for the Urban Airship Push RTC
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.Logger.logWriter">
+            <summary>
+            Static field for the LogWriter
+            <value> Current value of the LogWriter</value>
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.Logger.logLevel">
+            <summary>
+            LogLevel 
+            </summary>
+            <value>Protected log level</value>
+        </member>
+        <member name="M:UrbanAirship.Logger.WriteLog(System.String,System.String)">
+            <summary>
+            Writes to the log, with the format "MM-dd hh:mm:ss:ffff loglevel / message"
+            </summary>
+            <param name="levelPrefix">The one letter prefix indicating current log settings</param>
+            <param name="message">The message to append to the preformatted log output</param>
+        </member>
+        <member name="M:UrbanAirship.Logger.WriteLog(System.String,System.String,System.Exception)">
+            <summary>
+            Writes to the log, with the format "MM-dd hh:mm:ss:ffff loglevel / message exception.message"
+            </summary>
+            <param name="levelPrefix">The one letter prefix indicating current log settings</param>
+            <param name="message">The message to append to the preformatted log output</param>
+            <param name="ex">The Exception thrown, data from the Exception will be included in the message</param>
+            <remarks>The class name of the exception and the associated message will be logged as well</remarks>
+        </member>
+        <member name="M:UrbanAirship.Logger.Verbose(System.String)">
+            <summary>
+            Logs message when LogLevel less than or equal to Verbose
+            </summary>
+            <param name="message">The message to append to the preformatted log output</param>
+        </member>
+        <member name="M:UrbanAirship.Logger.Verbose(System.String,System.Exception)">
+            <summary>
+            Logs message and exception when log level less than or equal to Verbose
+            </summary>
+            <param name="message">The message to append to the preformatted log output</param>
+            <param name="ex">The Exception thrown, data from the Exception will be included in the message</param>
+        </member>
+        <member name="M:UrbanAirship.Logger.Debug(System.String)">
+            <summary>
+            Logs message when log level less than or equal to Debug
+            </summary>
+            <param name="message">The message to append to the preformatted log output</param>
+        </member>
+        <member name="M:UrbanAirship.Logger.Debug(System.String,System.Exception)">
+            <summary>
+            Logs message and exception when log level less than or equal to Debug
+            </summary>
+            <param name="message">The message to append to the preformatted log output</param>
+            <param name="ex">The Exception thrown, data from the Exception will be included in the message</param>
+        </member>
+        <member name="M:UrbanAirship.Logger.Info(System.String)">
+            <summary>
+            Log message when log level is less than or equal to Info
+            </summary>
+            <param name="message">The message to append to the preformatted log output</param>
+        </member>
+        <member name="M:UrbanAirship.Logger.Info(System.String,System.Exception)">
+            <summary>
+            Log message when log level is less than or equal to Info
+            </summary>
+            <param name="message">The message to append to the preformatted log output</param>
+            <param name="ex">The Exception thrown, data from the Exception will be included in the message</param>
+        </member>
+        <member name="M:UrbanAirship.Logger.Warn(System.String)">
+            <summary>
+            Log message when log level is less than or equal to Warn
+            </summary>
+            <param name="message">The message to append to the preformatted log output</param>
+        </member>
+        <member name="M:UrbanAirship.Logger.Warn(System.String,System.Exception)">
+            <summary>
+            Log message and exception when log level is less than or equal to Warn
+            </summary>
+            <param name="message">The message to append to the preformatted log output</param>
+            <param name="ex">The Exception thrown, data from the Exception will be included in the message</param>
+        </member>
+        <member name="M:UrbanAirship.Logger.Error(System.String)">
+            <summary>
+            Log message when log level is less than or equal to Error
+            </summary>
+            <param name="message">The message to append to the preformatted log output</param>
+        </member>
+        <member name="M:UrbanAirship.Logger.Error(System.String,System.Exception)">
+            <summary>
+            Log message and exception when log level is less than or equal to Error
+            </summary>
+            <param name="message">The message to append to the preformatted log output</param>
+            <param name="ex">The Exception thrown, data from the Exception will be included in the message</param>
+        </member>
+        <member name="P:UrbanAirship.Logger.LogWriter">
+            <summary>
+            Object used for logging.
+            </summary>
+            <remarks>Defaults to the SystemLogWriter</remarks>
+            <value>Current log writer</value>
+        </member>
+        <member name="P:UrbanAirship.Logger.LogLevel">
+            <summary>
+            Gets/Sets LogLevel Default value is LogLevel.Info
+            </summary>
+            <value>Current log level.</value>
+            <remarks> See class header for log level enums</remarks>
+        </member>
+        <member name="T:UrbanAirship.Push.PushPreferences">
+            <summary>
+            Urban Airship push preferences. This class allows for
+            persisting dynamic app-specific data.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.PushPreferences.#ctor">
+            <summary>
+            Internal constructor that can be used for testing.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.PushPreferences.Subscribe(System.IObserver{UrbanAirship.Push.NotificationType})">
+            <summary>
+            Subscribe for NotificationType updates.
+            </summary>
+            <param name="observer"></param>
+            <returns>A Disposable used for unsubscribing</returns>
+            <remarks>Observer callbacks are marshalled onto the main thread.</remarks>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.Shared">
+            <summary>
+            The Shared singleton instance.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.Alias">
+            <summary>
+            Gets or sets the alias for the APID
+            </summary>
+            <value>The alias is a string that may be used instead of the APID when sending pushes.</value>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.Tags">
+            <summary>
+            Gets or sets the tags for the APID. Tags must be written in bulk and
+            cannot be added one at a time as each SetTags() call overwrites
+            any currently persisted tags.
+            </summary>
+            <value>The APID tags. A set of strings used to categorize APIDs.</value>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.Apid">
+            <summary>
+            Gets or sets the APID for this device.
+            </summary>
+            <value>The APID uniquely identifies this device and application to Urban Airship.</value>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.PushEnabled">
+            <summary>
+            Gets the push enabled flag for this application based on enabled types.
+            </summary>
+            <value>If true, the application will be registered for push.</value>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.EnabledNotificationTypes">
+            <summary>
+            Gets and sets the enabled push notification types.
+            </summary>
+            <value>A bitfield of NotificationType values.</value>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.TilesEnabled">
+            <summary>
+            Gets the tiles enabled flag (based on the EnabledNotificationTypes)
+            </summary>
+            <value>If true, the application is registered for live tiles.</value>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.ToastsEnabled">
+            <summary>
+            Gets the toasts enabled flag (based on the EnabledNotificationTypes)
+            </summary>
+            <value>If true, the application is registered for toast notifications.</value>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.ChannelUri">
+            <summary>
+            Gets and sets the current Channel URI.
+            </summary>
+            <value>The Channel URI is the native, ephemeral push address.</value>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.ChannelExpiration">
+            <summary>
+            Gets and sets the current channel expiration date.
+            </summary>
+            <value>The expiration time for the current channel. WNS only.</value>
+        </member>
+        <member name="P:UrbanAirship.Push.PushPreferences.ToastOptInStatus">
+            <summary>
+            Gets the Toast opt-in status. On some platforms, users must explicitly opt-in to Toast
+            notifications. This property allows developers to track the status.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.PushActivatedEventArgs">
+            <summary>
+            Contains arguments passed to delegates of the PushActivatedEvent.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.PushActivatedEventArgs.#ctor(UrbanAirship.Push.PushNotification)">
+            <summary>
+            PushActivatedEventArgs constructor.
+            </summary>
+            <param name="notification">The associated notification model object.</param>
+        </member>
+        <member name="T:UrbanAirship.Push.PushReceivedEventArgs">
+            <summary>
+            Contains arguments passed to delegates of the PushReceivedEvent.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.PushReceivedEventArgs.#ctor(UrbanAirship.Push.PushNotification)">
+            <summary>
+            PushReceivedEventArgs constructor.
+            </summary>
+            <param name="notification">The associated notification model object.</param>
+        </member>
+        <member name="T:UrbanAirship.Push.OptInStatus">
+            <summary>
+            The user's Push opt-in status.
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.Push.OptInStatus.NotPrompted">
+            <summary>
+            The user has not been prompted.
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.Push.OptInStatus.OptIn">
+            <summary>
+            The user explicitly opted in.
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.Push.OptInStatus.OptOut">
+            <summary>
+            The user explicitly opted out.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.NotificationType">
+            <summary>
+            The registered notification types.
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.Push.NotificationType.None">
+            <summary>
+            Notifications disabled
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.Push.NotificationType.Tile">
+            <summary>
+            Tile enables tile notifications
+            </summary>
+        </member>
+        <member name="F:UrbanAirship.Push.NotificationType.Toast">
+            <summary>
+            Toast enables toast (popup) notifications
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.PushManager">
+            <summary>
+            The primary interface for Urban Airship Push functionality. 
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.Init">
+            <summary>
+            The main entry point for singleton initialization.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.OnRegistration(UrbanAirship.Push.RegistrationEventArgs)">
+            <summary>
+            Fires a registration event which can be seen by the consuming app, e.g.
+            <code>OnRegistration(new RegistrationEventArgs(apid, true));</code> 
+            </summary>
+            <param name="e">An instsance of RegistrationEventArgs</param>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.OnPushReceived(UrbanAirship.Push.PushReceivedEventArgs)">
+            <summary>
+            Fires a push received event which can be seen by the consuming app, e.g.
+            <code>
+             OnPushReceived(new PushReceivedEventArgs("hey!", extras)); 
+            </code>
+            </summary>
+            <param name="e">An instance of PushReceivedEventArgs</param>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.OnPushActivated(UrbanAirship.Push.PushActivatedEventArgs)">
+            <summary>
+            Fires a push activated (clicked) event which can be seen by the consuming app, e.g.
+            <code>
+            OnPushActivated(new PushActivatedEventArgs("hey!", extras));
+            </code>
+            </summary>
+            <param name="e">An instance of PushActivatedEventArgs</param>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.InitShared">
+            <summary>
+            The shared init method for the singleton.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.AwaitSafelyAsync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Awaits a given task and catches/logs exceptions.
+            </summary>
+            <param name="operation">A function returning a task.</param>
+            <returns>A Task of object that can itself be awaited (the result will always be null).</returns>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.EnqueueOperation(UrbanAirship.Util.TaskRunner{System.Object},System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Adds a task to to a designated task runner, wrapped so that any uncaught exceptions will be handled.
+            </summary>
+            <param name="runner">A task runner.</param>
+            <param name="operation">A function returning a task.</param>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.UpdateIfNecessary">
+            <summary>
+            Updates the APID on the server with the most recent registration data.
+            </summary>
+            <remarks>The update will only occur if the registration data has changed.</remarks>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.RegisterAsync">
+            <summary>
+            Initiates push channel registration through the IPushRegistrar interface,
+            continuing through to device API registration once successful.
+            </summary>
+            <returns>True if registration completed successfully, otherwise false</returns>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.Register">
+            <summary>
+            Registers for push, including (if needed) firstrun, channel registration, and
+            APID registration.
+            </summary>
+            <remarks>If push is disabled, this is a no-op.</remarks>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.BuildRegistrationData(UrbanAirship.AirshipConfig,UrbanAirship.Push.PushPreferences)">
+            <summary>
+            Factory method for building the data necessary for a DeviceApiClient registration payload.
+            </summary>
+            <returns>A fully populated instance of DeviceApiClient.RegistrationData.</returns>
+        </member>
+        <member name="M:UrbanAirship.Push.PushManager.UpdateRegistration">
+            <summary>
+            Updates the app's alias and tags on the Urban Airship server infrastructure.
+            </summary>
+            <remarks>This method is a no-op if the relevant data has not changed since the previous
+            registration.</remarks>
+        </member>
+        <member name="E:UrbanAirship.Push.PushManager.RegistrationEvent">
+            <summary>
+            Event that fires when registration with Urban Airship is complete.
+            </summary>
+        </member>
+        <member name="E:UrbanAirship.Push.PushManager.PushReceivedEvent">
+            <summary>
+            Event that fires with a push notification is received.
+            </summary>
+        </member>
+        <member name="E:UrbanAirship.Push.PushManager.PushActivatedEvent">
+            <summary>
+            Event that fires with a push notification is activated by the user.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.PushManager.Shared">
+            <summary>
+            Singleton accessor for the shared PushManager instance.
+            </summary>
+            <returns>
+            The shared PushManager instance.
+            </returns>
+        </member>
+        <member name="P:UrbanAirship.Push.PushManager.Tags">
+            <summary>
+            Gets and sets the tags locally on this application's APID. 
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.PushManager.Alias">
+            <summary>
+            Gets and sets the alias locally on this application's APID.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.PushManager.EnabledNotificationTypes">
+            <summary>
+            Gets and sets the types of notifications enabled for this application. Adding notification
+            types will register the application for push notifications with both Microsoft and Urban Airship.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.PushManager.ToastEnabled">
+            <summary>
+            Convenience accessor that sets or determines whether toasts are included in the <c>EnabledNotificationTypes</c>.
+            </summary>
+            <remarks>Each time this property is set, a full registration will be triggered.  For setting multiple types
+            simultaneously, it is better to use the <c>EnabledNotificationTypes</c> property directly, with bitmasks.</remarks>
+        </member>
+        <member name="P:UrbanAirship.Push.PushManager.TilesEnabled">
+            <summary>
+            Convenience accessor that sets or determines whether tiles are included in the <c>EnabledNotificationTypes</c>.
+            </summary>
+            <remarks>Each time this property is set, a full registration will be triggered.  For setting multiple types
+            simultaneously, it is better to use the <c>EnabledNotificationTypes</c> property directly, with bitmasks.</remarks>
+        </member>
+        <member name="P:UrbanAirship.Push.PushManager.ToastOptInStatus">
+            <summary>
+            Gets and sets the opt-in status for the user. Windows Phone application guidelines require developers
+            to prompt users for an explicit opt-in for Toast notifications. Use this value to track whether or not a user
+            has been prompted and record their preference here once you do display the required pop-up.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.PushManager.InterceptNotifications">
+            <summary>
+            Accessor for whether the library will intercept push notifications.  If set to <code>true</code> then
+            the OS will not display an incoming notification, but the app will still have a chance to handle it
+            programmatically.  This value defaults to <code>false</code>
+            </summary>
+            <remarks>This accessor is only relevant for the universal library. On Windows Phone, all notifications are intercepted by
+            default when the app is in the foreground.</remarks>
+        </member>
+        <member name="P:UrbanAirship.Push.PushManager.TileWhitelist">
+            <summary>
+            Accessor for a whitelist of suitable URIs for tile images sent in push notifications.
+            </summary>
+            <remarks>This accessor is only relevant on Windows Phone. In Windows, tile notifications do not require
+            a URI whitelist.</remarks>
+        </member>
+        <member name="P:UrbanAirship.Push.PushManager.DeviceTagsEnabled">
+            <summary>
+            Accessor for whether the library will send tags in registration.
+            </summary>
+            <remarks>Defaults to true</remarks>
+        </member>
+        <member name="T:UrbanAirship.Push.PushRegistrarBuilder">
+            <summary>
+            A convenince factory class for constructing IPushRegistrar implementors appropriate
+            to the platform at hand.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.PushRegistrarBuilder.NewRegistrar">
+            <summary>
+            Generates a new instance implementing the IPushRegistrar interface.
+            </summary>
+            <returns>An IPushRegistrar for either Windows 8 or Windows Phone 8.</returns>
+        </member>
+        <member name="T:UrbanAirship.Push.RegistrationEventArgs">
+            <summary>
+            Contains arguments passed to delegates of the PushReceivedEvent.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Push.RegistrationEventArgs.#ctor(System.String,System.Boolean)">
+            <summary>
+            RegistrationEventArgs Constructor.
+            </summary>
+            <param name="apid">The associated APID.</param>
+            <param name="valid">A boolean indicating whether registration is valid.</param>
+        </member>
+        <member name="P:UrbanAirship.Push.RegistrationEventArgs.Apid">
+            <summary>
+            Accessor for the associated APID.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.Push.RegistrationEventArgs.IsValid">
+            <summary>
+            Accessor for the associated boolean indicating whether registration is
+            valid.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Push.Win8PushRegistrar">
+            <summary>
+            Implementation of the IPushRegistrar interface for Windows 8.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.UAirship">
+            <summary>
+            UAirship is the primary manager class for the Urban Airship library. It manages app configuration
+            and handles service initialization.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.UAirship.TakeOff">
+            <summary>
+            Initialize the Urban Airship library with default options.
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.UAirship.TakeOff(UrbanAirship.AirshipConfig)">
+            <summary>
+            Initialize the Urban Airship library. This must be called before
+            any library functionality is used.
+            </summary>
+            <param name="options">The desired library configuration.</param>
+        </member>
+        <member name="P:UrbanAirship.UAirship.Shared">
+            <summary>
+            Gets the shared UAirship instance.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.UAirship.IsFlying">
+            <summary>
+            Get the initialization status of the library.
+            </summary>
+            <value><code>true</code> when initialized, otherwise <code>false</code>.</value>
+        </member>
+        <member name="P:UrbanAirship.UAirship.Options">
+            <summary>
+            Gets the current AirshipConfig options.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.UAirship.Version">
+            <summary>
+            Gets the Urban Airship library version number.
+            </summary>
+        </member>
+        <member name="P:UrbanAirship.UAirship.TakeOffContext">
+            <summary>
+            The SynchronizationContext used to call takeOff. All library callbacks will be made with this context.
+            </summary>
+        </member>
+        <member name="T:UrbanAirship.Util.AirshipUtilities">
+            <summary>
+            Collection of utility methods to support the Urban Airship libraries. 
+            </summary>
+        </member>
+        <member name="M:UrbanAirship.Util.AirshipUtilities.ConvertCredentialToBasicAuth(System.Net.NetworkCredential)">
+            <summary>
+            Convert a NetworkCredential into a base64 encoded string in the form
+            "username:password" by taking the username/password from the credential
+            object, and then concatenating and converting. 
+            </summary>
+            <code>
+            NetworkCredential credentials = new NewtorkCredential("appKey", "appSecret");
+            string b64EncodedAuth = ConvertCredentialToBasicAuth(credentials);
+            </code>
+            <param name="credential">NetworkCredential to parse the username and password from.</param>
+            <returns>Base64 encoded username:password for use as Basic Auth header</returns>
+        </member>
+        <member name="M:UrbanAirship.Util.AirshipUtilities.PreemptivelyAuthorizeHttpWebRequest(System.Net.HttpWebRequest,System.Net.NetworkCredential)">
+            <summary>
+            Adds an Authorization header to the request with a base64 encoded username and password
+            taken from the NetworkCredential object.
+            </summary>
+            <param name="request">The request to authorize</param>
+            <param name="credential">The credential to parse the username and password from.</param>
+        </member>
+        <member name="T:UrbanAirship.Util.TaskRunner`1">
+            <summary>
+            An abstraction to facilitate scheduling sequential Tasks.
+            </summary>
+            <remarks>This class is intended to be used with async/await.</remarks>
+        </member>
+        <member name="M:UrbanAirship.Util.TaskRunner`1.NextAsync(System.Func{System.Threading.Tasks.Task{`0}})">
+            <summary>
+            Schedule a task to execute once all previously scheduled tasks are completed.
+            </summary>
+            <param name="next">A function that returns a Task of T/></param>
+            <returns>A composite Task of T that will complete once the newly scheduled task is completed.
+            While the newly scheduled task may not be immediately run, this composite task can be
+            awaited for its result value.</returns>
+            <remarks>The task returned from the supplied function will not be run directly, since async
+            methods implicitly run the tasks they return.</remarks>
+        </member>
+    </members>
+</doc>
