@@ -1,0 +1,2 @@
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\x64\Debug\PushComponent.csprojResolveAssemblyReference.cache
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\x64\Debug\PushComponent.csproj.CoreCompileInputs.cache

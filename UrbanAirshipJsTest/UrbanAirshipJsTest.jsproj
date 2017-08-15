@@ -78,13 +78,13 @@
     <None Include="UrbanAirshipJsTest_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="UrbanAirship">
-      <HintPath>..\..\UrbanAirshipWindows\UrbanAirshipWindows\bin\Debug\UrbanAirship.winmd</HintPath>
-      <IsWinMDFile>true</IsWinMDFile>
-    </Reference>
+    <ProjectReference Include="..\RuntimeComponentTest\PushComponent.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RuntimeComponentTest\RuntimeComponentTest.csproj" />
+    <Reference Include="UrbanAirship">
+      <HintPath>bin\Debug\UrbanAirship.winmd</HintPath>
+      <IsWinMDFile>true</IsWinMDFile>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
   <!-- To modify your build process, add your task inside one of the targets below then uncomment

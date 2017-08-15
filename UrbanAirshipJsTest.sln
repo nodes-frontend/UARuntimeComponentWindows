@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "UrbanAirshipJsTest", "UrbanAirshipJsTest\UrbanAirshipJsTest.jsproj", "{E1EB2FAA-1679-4041-91BE-CF4E21AD3655}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuntimeComponentTest", "RuntimeComponentTest\RuntimeComponentTest.csproj", "{8EEF5039-DAB4-4DC1-BD0C-28040896046F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushComponent", "RuntimeComponentTest\PushComponent.csproj", "{8EEF5039-DAB4-4DC1-BD0C-28040896046F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,5 +62,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DB169B6-CA26-437F-B8FB-CE0940CC8537}
 	EndGlobalSection
 EndGlobal

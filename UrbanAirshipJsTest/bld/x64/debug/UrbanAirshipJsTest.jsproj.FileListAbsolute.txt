@@ -1,0 +1,2 @@
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bin\x64\Debug\PushComponent.winmd
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\x64\Debug\UrbanAirshipJsTest.jsproj.CoreCompileInputs.cache

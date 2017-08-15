@@ -20,3 +20,24 @@ C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\RuntimeC
 C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\RuntimeComponentTest\bin\Debug\UrbanAirship.xml
 C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\RuntimeComponentTest\bin\Debug\UrbanAirship.pri
 C:\Users\Nodes\documents\visual studio 2017\Projects\UrbanAirshipJsTest\RuntimeComponentTest\obj\Debug\RuntimeComponentTest.csprojResolveAssemblyReference.cache
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\RuntimeComponentTest.csproj.CoreCompileInputs.cache
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\RuntimeComponentTest.winmdobj
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\RuntimeComponentTest.compile.pdb
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\bin\Debug\RuntimeComponentTest.winmd
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\bin\Debug\RuntimeComponentTest.pdb
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\bin\Debug\RuntimeComponentTest.pri
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\bin\Debug\UrbanAirship.xml
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\bin\Debug\UrbanAirship.pri
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\RuntimeComponentTest.winmd
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\RuntimeComponentTest.pdb
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\priconfig.xml
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\priconfig.xml.intermediate
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\layout.resfiles
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\layout.resfiles.intermediate
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\resources.resfiles
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\resources.resfiles.intermediate
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\pri.resfiles
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\pri.resfiles.intermediate
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\qualifiers.txt
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\qualifiers.txt.intermediate
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\obj\Debug\MultipleQualifiersPerDimensionFound.txt

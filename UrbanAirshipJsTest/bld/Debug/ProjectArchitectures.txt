@@ -1,2 +1,2 @@
-C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\RuntimeComponentTest\RuntimeComponentTest.csproj;neutral
-C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\UrbanAirshipJsTest.jsproj;neutral
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\PushComponent.csproj;neutral
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\UrbanAirshipJsTest.jsproj;neutral

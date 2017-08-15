@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AirshipConfig>
+  <DevelopmentAppKey>WEUYEjWQT0-NSXuBWFfoyw</DevelopmentAppKey>
+  <DevelopmentAppSecret>EfLkiERhSK22vPZOKILYYw</DevelopmentAppSecret>
+  <DevelopmentLogLevel>Verbose</DevelopmentLogLevel>
+  <InProduction>false</InProduction>
+  <ProductionAppKey>WEUYEjWQT0-NSXuBWFfoyw</ProductionAppKey>
+  <ProductionAppSecret>EfLkiERhSK22vPZOKILYYw</ProductionAppSecret>
+  <ProductionLogLevel>Error</ProductionLogLevel>
+</AirshipConfig>

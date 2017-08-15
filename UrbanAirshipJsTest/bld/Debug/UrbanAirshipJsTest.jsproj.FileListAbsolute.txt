@@ -22,3 +22,24 @@ C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAir
 C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\bin\Debug\RuntimeComponentTest.winmd
 C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\bin\Debug\RuntimeComponentTest.pdb
 C:\Users\Nodes\Documents\Visual Studio 2017\Projects\UrbanAirshipJsTest\UrbanAirshipJsTest\bin\Debug\RuntimeComponentTest.pri
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bin\Debug\ReverseMap\resources.pri
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\UrbanAirshipJsTest.jsprojResolveAssemblyReference.cache
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\UrbanAirshipJsTest.jsproj.CoreCompileInputs.cache
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\ResourceHandlingTask.state
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\priconfig.xml
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\priconfig.xml.intermediate
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\layout.resfiles
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\layout.resfiles.intermediate
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\resources.resfiles
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\resources.resfiles.intermediate
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\pri.resfiles
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\pri.resfiles.intermediate
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\qualifiers.txt
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\qualifiers.txt.intermediate
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bld\Debug\ProjectArchitectures.txt
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bin\Debug\AppxManifest.xml
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bin\Debug\UrbanAirshipJsTest.build.appxrecipe
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bin\Debug\PushComponent.winmd
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bin\Debug\PushComponent.pdb
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\bin\Debug\PushComponent.pri

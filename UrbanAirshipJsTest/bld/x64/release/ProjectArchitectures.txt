@@ -1,0 +1,2 @@
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\RuntimeComponentTest\PushComponent.csproj;x64
+C:\Users\Johnny\Documents\Work\UARuntimeComponentWindows\UrbanAirshipJsTest\UrbanAirshipJsTest.jsproj;x64

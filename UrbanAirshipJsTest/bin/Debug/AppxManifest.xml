@@ -23,9 +23,17 @@
   <Applications>
     <Application Id="App" StartPage="index.html">
       <uap:VisualElements DisplayName="UrbanAirshipJsTest" Description="UrbanAirshipJsTest" BackgroundColor="transparent" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png" />
+        <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png"></uap:DefaultTile>
         <uap:SplashScreen Image="images\splashscreen.png" />
       </uap:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="UrbanAirship.Push.WNSChannelRenewelTask">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="pushNotification" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
@@ -35,19 +43,17 @@
     <Extension Category="windows.activatableClass.inProcessServer">
       <InProcessServer>
         <Path>CLRHost.dll</Path>
-        <ActivatableClass ActivatableClassId="RuntimeComponentTest.PushPayload" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="RuntimeComponentTest.Eventful" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="RuntimeComponentTest.Class1" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="RuntimeComponentTest.TestEventArgs" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UrbanAirship.AirshipConfig" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="PushComponent.PushHandler" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="PushComponent.PushPayload" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="UrbanAirship.UAirship" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UrbanAirship.AirshipConfig" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UrbanAirship.Push.PushNotification" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UrbanAirship.Push.TileNotificationData" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UrbanAirship.Push.ToastNotificationData" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UrbanAirship.Push.PushManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UrbanAirship.Push.WNSChannelRenewalTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="UrbanAirship.Logger" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="UrbanAirship.DelegatedLogWriter" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UrbanAirship.Push.TileNotificationData" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UrbanAirship.Push.PushManager" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UrbanAirship.Push.PushNotification" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UrbanAirship.Push.WNSChannelRenewalTask" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UrbanAirship.Push.ToastNotificationData" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
   </Extensions>
@@ -55,10 +61,10 @@
     <build:Item Name="VisualStudio" Version="15.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2017" />
     <build:Item Name="OperatingSystem" Version="10.0.14393.0 (rs1_release.160715-1616)" />
-    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="15.0.26419.1" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="15.0.26720.2" />
     <build:Item Name="ProjectGUID" Value="e1eb2faa-1679-4041-91be-cf4e21ad3655" />
     <build:Item Name="OptimizingToolset" Value="None" />
     <build:Item Name="TargetRuntime" Value="AppHost" />
-    <build:Item Name="MakePri.exe" Version="10.0.15063.137 (WinBuild.160101.0800)" />
+    <build:Item Name="MakePri.exe" Version="10.0.15063.468 (WinBuild.160101.0800)" />
   </build:Metadata>
 </Package>
