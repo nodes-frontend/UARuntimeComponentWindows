@@ -225,12 +225,14 @@ namespace PushComponent
             }
         }
 
-        public static void SetTags(IList<string> tags)
+        public static string SetTags(IList<string> tags)
         {
             try
             {
                 PushManager.Shared.Tags = tags;
                 PushManager.Shared.UpdateRegistration();
+
+                return "Updated tags to: " + tags.ToString();
             }
             catch (Exception e)
             {
@@ -238,6 +240,8 @@ namespace PushComponent
                 {
                     DebugEvent(null, "SetTags() threw an error: " + e.ToString());
                 }
+
+                return "SetTags() threw an error: " + e.ToString();
             }
         }
 
