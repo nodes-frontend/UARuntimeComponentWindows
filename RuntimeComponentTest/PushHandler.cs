@@ -6,24 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-//using PushObject;
 using UrbanAirship;
 using UrbanAirship.Push;
 using Windows.Data.Xml.Dom;
 using System.Net;
 using Windows.Foundation.Collections;
 using System.Diagnostics;
-
-/*namespace PushObject
-{
-    public sealed class PushPayload
-    {
-        [JsonProperty("type")]
-        public string Type { get; set; } = "type";
-
-        public string Text { get; set; }
-    }
-}*/
 
 namespace PushComponent
 {
@@ -39,6 +27,7 @@ namespace PushComponent
         static AirshipConfig uaConfig = new AirshipConfig();
         public static event EventHandler<PushPayload> PushStateChanged;
         public static event EventHandler<RegistrationEventArgs> RegistrationStateChanged;
+        public static event EventHandler<PushPayload> PushActivated;
         public static event EventHandler<string> PushParseError;
         public static event EventHandler<string> DebugEvent;
 
@@ -80,16 +69,17 @@ namespace PushComponent
             }
         }
 
-        public static string SetUserNotificationsEnabled(bool enabled)
+        public static string SetUserNotificationsEnabled(bool enabled, bool interceptNotifications)
         {
             if (enabled)
             {
                 try
                 {
                     UrbanAirship.Push.PushManager.Shared.EnabledNotificationTypes = NotificationType.Toast | NotificationType.Tile;
-                    UrbanAirship.Push.PushManager.Shared.InterceptNotifications = true;
+                    UrbanAirship.Push.PushManager.Shared.InterceptNotifications = interceptNotifications;
                     UrbanAirship.Push.PushManager.Shared.RegistrationEvent += Shared_RegistrationEvent;
                     UrbanAirship.Push.PushManager.Shared.PushReceivedEvent += Shared_PushReceivedEvent;
+                    UrbanAirship.Push.PushManager.Shared.PushActivatedEvent += Shared_PushActivatedEvent;
                     return "Success! (" + enabled + ")";
                 }
                 catch (Exception ex)
@@ -108,6 +98,27 @@ namespace PushComponent
                 {
                     return "Error! (" + enabled + "), " + ex.ToString();
                 }
+            }
+        }
+
+        private static void Shared_PushActivatedEvent(object sender, PushActivatedEventArgs e)
+        {
+            if (DebugEvent != null) DebugEvent(sender, "PushActivatedEvent");
+
+            try
+            {
+                var pushPayload = ParsePushPayload(sender, e?.Notification);
+
+                EventHandler<PushPayload> handler = PushActivated;
+                if (handler != null)
+                {
+                    handler(sender, pushPayload);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.ToString());
+                Debug.WriteLine(ex.ToString());
             }
         }
 
@@ -137,28 +148,50 @@ namespace PushComponent
             }
         }
 
-        private static void Shared_PushReceivedEvent(object sender, PushReceivedEventArgs e)
+        private static PushPayload ParsePushPayload(object sender, PushNotification notification)
         {
             try
             {
-                if (DebugEvent != null) DebugEvent(sender, "e?.Notification?.Type: " + e?.Notification?.Type ?? "null");
-                if (DebugEvent != null) DebugEvent(sender, "e?.Notification?.ToastData?.Text: " + e?.Notification?.ToastData?.Text ?? "null");
-                if (DebugEvent != null) DebugEvent(sender, "e?.Notification?.ToastData?.Payload?.ToString(): " + e?.Notification?.ToastData?.Payload?.ToString() ?? "null");
-                
+                if (DebugEvent != null) DebugEvent(sender, "Notification?.Type: " + notification?.Type ?? "null");
+                if (DebugEvent != null) DebugEvent(sender, "Notification?.ToastData?.Text: " + notification?.ToastData?.Text ?? "null");
+                if (DebugEvent != null) DebugEvent(sender, "Notification?.ToastData?.Payload?.ToString(): " + notification?.ToastData?.Payload?.ToString() ?? "null");
+
                 if (DebugEvent != null) DebugEvent(sender, "Trying parsing...");
-                var xml = e.Notification.ToastData.Payload as XmlDocument;
+                var xml = notification.ToastData.Payload as XmlDocument;
                 var toast = xml.GetElementsByTagName("toast").First();
                 if (DebugEvent != null) DebugEvent(sender, "Got toast XML element: " + xml.GetXml());
-                var text = e?.Notification?.ToastData?.Text?.First() ?? "null";
+                var text = notification?.ToastData?.Text?.First() ?? "null";
                 if (DebugEvent != null) DebugEvent(sender, "Got toast XML TEXT: " + text);
                 var launchAttribute = toast?.Attributes?.GetNamedItem("launch");
                 if (DebugEvent != null) DebugEvent(sender, "Got toast launch attribute: " + launchAttribute?.NodeValue?.ToString() ?? "damn");
-                
+
                 var pushPayload = new PushPayload()
                 {
                     Text = text,
                     Json = launchAttribute?.NodeValue?.ToString()
                 };
+
+                return pushPayload;
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.ToString());
+                Debug.WriteLine(ex.ToString());
+                EventHandler<string> handler = PushParseError;
+                if (handler != null)
+                {
+                    handler(sender, ex.ToString());
+                }
+
+                return null;
+            }
+        }
+
+        private static void Shared_PushReceivedEvent(object sender, PushReceivedEventArgs e)
+        {
+            try
+            {
+                var pushPayload = ParsePushPayload(sender, e?.Notification);
 
                 EventHandler<PushPayload> handler = PushStateChanged;
                 if (handler != null)
@@ -178,17 +211,50 @@ namespace PushComponent
             }
         }
 
-        public static string SetApid(string apid)
+        public static string SetAlias(string alias)
         {
             try
             {
-                UrbanAirship.Push.PushManager.Shared.Alias = apid;
+                UrbanAirship.Push.PushManager.Shared.Alias = alias;
                 UrbanAirship.Push.PushManager.Shared.UpdateRegistration();
-                return "Success! (" + apid + ")";
+                return "Success! (" + alias + ")";
             }
             catch (Exception ex)
             {
-                return "Error! (" + apid + "), " + ex.ToString();
+                return "Error! (" + alias + "), " + ex.ToString();
+            }
+        }
+
+        public static void SetTags(IList<string> tags)
+        {
+            try
+            {
+                PushManager.Shared.Tags = tags;
+                PushManager.Shared.UpdateRegistration();
+            }
+            catch (Exception e)
+            {
+                if (DebugEvent != null)
+                {
+                    DebugEvent(null, "SetTags() threw an error: " + e.ToString());
+                }
+            }
+        }
+
+        public static IList<string> GetTags()
+        {
+            try
+            {
+                return PushManager.Shared.Tags;
+            }
+            catch(Exception e)
+            {
+                if(DebugEvent != null)
+                {
+                    DebugEvent(null, "GetTags() threw an error: " + e.ToString());
+                }
+
+                return new List<string>();
             }
         }
 
@@ -200,7 +266,12 @@ namespace PushComponent
             }
             catch (Exception ex)
             {
-                return "Error! " + ex.ToString();
+                if (DebugEvent != null)
+                {
+                    DebugEvent(null, "GetAlias() threw an error: " + ex.ToString());
+                }
+
+                return "";
             }
         }
     }
