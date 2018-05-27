@@ -1,4 +1,4 @@
-# UARuntimeComponentWindows
+# ⛔️ [DEPRECATED] UARuntimeComponentWindows
 This runtime component is meant to work along with [cordova-plugin-urbanairship-windows](#https://github.com/krislm/cordova-plugin-urbanairship-windows)
 
 *If you need to edit*
